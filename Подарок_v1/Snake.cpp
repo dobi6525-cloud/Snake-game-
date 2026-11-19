@@ -89,9 +89,9 @@ void Snake::Board(){
 }
 
 void Snake::CastomSnake() {
-    std::cout << "Введите как вы хотите видеть голову своей змеи, введите символ с клавиатуры(ну или вставьте символ из тырнета): ";
+    std::cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ ГЄ ГўГ» ГµГ®ГІГЁГІГҐ ГўГЁГ¤ГҐГІГј ГЈГ®Г«Г®ГўГі Г±ГўГ®ГҐГ© Г§Г¬ГҐГЁ, ГўГўГҐГ¤ГЁГІГҐ Г±ГЁГ¬ГўГ®Г« Г± ГЄГ«Г ГўГЁГ ГІГіГ°Г»(Г­Гі ГЁГ«ГЁ ГўГ±ГІГ ГўГјГІГҐ Г±ГЁГ¬ГўГ®Г« ГЁГ§ ГІГ»Г°Г­ГҐГІГ ): ";
     std::cin >> headSnake;
-    std::cout << "Введите таким же образом тело змеи: ";
+    std::cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГІГ ГЄГЁГ¬ Г¦ГҐ Г®ГЎГ°Г Г§Г®Г¬ ГІГҐГ«Г® Г§Г¬ГҐГЁ: ";
     std::cin >> bodySnake;
 }
 
@@ -287,7 +287,7 @@ void Snake::PrintDataScore() {
     SetConsoleCursorPosition(hConsole, cursorPos);
     fflush(stdout);
 
-    std::cout << "Счёт: " << point;
+    std::cout << "Г‘Г·ВёГІ: " << point;
 }
 
 void Snake::IncreaceSpaceArray() {
@@ -315,7 +315,7 @@ void Snake::IncreaceSpaceArray() {
 
 void Snake::GameScore() {
     system("cls");
-    std::cout << "Спасибо за вашу игру, вы набрали:" << point << std::endl;
+    std::cout << "Г‘ГЇГ Г±ГЁГЎГ® Г§Г  ГўГ ГёГі ГЁГЈГ°Гі, ГўГ» Г­Г ГЎГ°Г Г«ГЁ:" << point << std::endl;
 
     _getch();
 }
@@ -324,7 +324,7 @@ void Snake::GameScore() {
 MyltiplaySnake::MyltiplaySnake(int countConnections, bool SendServerOrClient){
     this->SendServerOrClient = SendServerOrClient;
     this->countConnections = countConnections;
-    //positionsSnake = new int** [countConnections];//переписать инициализацию позиции игрока
+    //positionsSnake = new int** [countConnections];//ГЇГҐГ°ГҐГЇГЁГ±Г ГІГј ГЁГ­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГѕ ГЇГ®Г§ГЁГ¶ГЁГЁ ГЁГЈГ°Г®ГЄГ 
     
 
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -477,7 +477,7 @@ void MyltiplaySnake::createAppleForOneUser(){
     move[1] = (char)indexEatApple;
     move[2] = (char)row;
     move[3] = (char)col;
-    fackYou = true;
+    You = true;
 
     countApple = countConnections;
     board[col][row] = '$';
@@ -528,7 +528,7 @@ void MyltiplaySnake::PrintBoard(){
     SetConsoleCursorPosition(hConsole, cursorPos);
     fflush(stdout);
 
-    std::cout << "Игроки: \n";
+    std::cout << "Г€ГЈГ°Г®ГЄГЁ: \n";
 
     PrintDataScore();
 
@@ -757,7 +757,7 @@ void MyltiplaySnake::PrintDataForDisplay(int x, int y, char simbol) {
     if (!SetConsoleCursorPosition(hConsole, cursorPos)) {
         
         DWORD err = GetLastError();
-        std::cerr << "Ошибка позиционирования: " << err << std::endl;
+        std::cerr << "ГЋГёГЁГЎГЄГ  ГЇГ®Г§ГЁГ¶ГЁГ®Г­ГЁГ°Г®ГўГ Г­ГЁГї: " << err << std::endl;
     }
     else {
         std::cout << simbol;
@@ -782,7 +782,7 @@ void MyltiplaySnake::PrintDataScore() {
         if (!SetConsoleCursorPosition(hConsole, cursorPos)) {
 
             DWORD err = GetLastError();
-            std::cerr << "Ошибка позиционирования: " << err << std::endl;
+            std::cerr << "ГЋГёГЁГЎГЄГ  ГЇГ®Г§ГЁГ¶ГЁГ®Г­ГЁГ°Г®ГўГ Г­ГЁГї: " << err << std::endl;
         }
         else {
             std::cout << nameUser[i][0] << ": " << sizeSnakes[i] << std::flush;
@@ -794,7 +794,7 @@ void MyltiplaySnake::PrintDataScore() {
 
 bool MyltiplaySnake::Death(int x, int y) {
     //for (int i = 0; i < countConnections; i++) {
-    //    for (int j = 0; j < sizeSnakes[i]; j++) {//переписать функцию смерти
+    //    for (int j = 0; j < sizeSnakes[i]; j++) {//ГЇГҐГ°ГҐГЇГЁГ±Г ГІГј ГґГіГ­ГЄГ¶ГЁГѕ Г±Г¬ГҐГ°ГІГЁ
     //        if (x == positionsSnake[i][j][1] && y == positionsSnake[i][j][0]) {
     //            return true;
     //        }
@@ -862,8 +862,8 @@ void MyltiplaySnake::RecvMessage(char* data){
 }
 
 void MyltiplaySnake::GenerateMessage() {
-    if (fackYou) {
-        fackYou = false;
+    if (You) {
+        You = false;
         move[4] = (char)(myPosition+1);
         move[5] = moveThis;
     }
