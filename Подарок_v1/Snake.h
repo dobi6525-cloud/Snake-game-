@@ -135,7 +135,7 @@ private:
 
     bool flagLife = 1;
     bool flagPointerHead = false;
-    bool fackYou = false;
+    bool You = false;
     bool EatApple = false;
     char moveThis;
     
